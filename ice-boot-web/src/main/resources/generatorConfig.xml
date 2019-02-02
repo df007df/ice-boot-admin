@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <properties resource="datasource.properties"/>
+
+    <!-- 引入配置文件,非必须 -->
+
+    <context id="mysql" defaultModelType="flat" targetRuntime="MyBatis3Simple">
+
+        <property name="autoDelimitKeywords" value="true"/>
+        <property name="javaFileEncoding" value="UTF-8"/>
+
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="tk.mybatis.mapper.common.Mapper"/>
+            <property name="useMapperCommentGenerator" value="true"/>
+            <property name="caseSensitive" value="false"/>
+            <property name="forceAnnotation" value="true"/>
+            <property name="generateColumnConsts" value="true"/>
+        </plugin>
+
+
+        <!-- 是否取消注释 -->
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <property name="suppressAllComments" value="false"/>
+        </commentGenerator>
+
+
+        <!-- jdbc连接 -->
+        <jdbcConnection driverClass="${datasource.driver-class-name}"
+                        connectionURL="${datasource.url}"
+                        userId="${datasource.username}" password="${datasource.password}">
+            <property name="useInformationSchema" value="true"></property>
+        </jdbcConnection>
+
+
+        <!-- 生成实体类 -->
+        <javaModelGenerator targetPackage="df.ice.boot.web.dao"
+                            targetProject="./src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+            <property name="rootClass" value="df.ice.boot.core.dao.BaseDao"/>
+        </javaModelGenerator>
+
+        <!--&lt;!&ndash; 生成maper.xml文件 &ndash;&gt;-->
+        <!--<sqlMapGenerator targetPackage="com.aliyun.edu.sandbox.dao.mapper"-->
+        <!--targetProject="./src/main/resources/mapper">-->
+        <!--<property name="enableSubPackages" value="true"/>-->
+        <!--</sqlMapGenerator>-->
+
+        <javaClientGenerator targetPackage="df.ice.boot.web.dao.mapper"
+                             targetProject="./src/main/java" type="ANNOTATEDMAPPER">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+
+        <table tableName="user_base" domainObjectName="User"
+               enableInsert="false">
+            <columnOverride column="age" javaType="java.lang.Integer"/>
+            <columnOverride column="is_pass" property="isPass" javaType="java.lang.Boolean"/>
+        </table>
+
+
+    </context>
+</generatorConfiguration>

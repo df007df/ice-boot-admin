@@ -1,0 +1,5 @@
+{
+  "name": "沙箱新后台",
+  "type": "iceworks",
+  "builder": "@ali/builder-iceworks"
+}
