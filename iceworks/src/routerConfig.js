@@ -26,6 +26,8 @@ import Fail from './pages/Fail';
 import ServerError from './pages/ServerError';
 import Forbidden from './pages/Forbidden';
 
+import Menu from './pages/Admin/Menu';
+
 import ProductListPage from './pages/Admin/Product/ListPage';
 import ProductDetailPage from './pages/Admin/Product/DetailPage';
 import ProductCreatePage from './pages/Admin/Product/CreatePage';
@@ -35,7 +37,7 @@ const routerConfig = [
 
   {
     path: '/system/menu/list',
-    component: ProductListPage,
+    component: Menu,
   },
 
   

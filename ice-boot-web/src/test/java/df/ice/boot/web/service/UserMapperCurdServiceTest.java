@@ -40,7 +40,7 @@ public class UserMapperCurdServiceTest {
     @Test
     public void delAll() {
         UserExample example = new UserExample();
-        example.createCriteria().andCtimeIsNotNull();
+        example.createCriteria().andGmtCreateIsNotNull();
         service.deleteByExample(example);
         System.out.println("delAll");
     }

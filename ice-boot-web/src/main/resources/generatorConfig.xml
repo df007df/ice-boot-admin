@@ -64,5 +64,15 @@
         </table>
 
 
+        <table tableName="menu" domainObjectName="Menu"
+               enableInsert="false">
+            <columnOverride column="is_controlled" javaType="java.lang.Boolean"/>
+        </table>
+
+        <table tableName="menu_resource" domainObjectName="MenuResource"
+               enableInsert="false">
+        </table>
+
+
     </context>
 </generatorConfiguration>
